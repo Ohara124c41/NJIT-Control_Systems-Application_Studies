@@ -1,0 +1,14 @@
+function [xdot, y1, y2] = PCA(x, u)
+a = 4;
+b = 1;
+M = 1;
+m = 0.4;
+g = 9.81;
+L = 0.25*M;
+xdot1 = x(3);
+xdot2 = x(4);
+xdot3 = -a*x(3) - ((m*g)/M)*x(2) + b*u;
+xdot4 = (a/L)*x(3) - (M+m)*(g/(M*L))*x(2) - (b/L)*u;
+xdot  = [xdot1; xdot2; xdot3; xdot4];
+y1 = x(1);
+y2 = x(2);
